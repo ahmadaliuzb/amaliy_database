@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Add Products </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-info" href="#" th:href="@{/product/all}"> Back to All Products </a>
+            <form action="#" class="form-horizontal"
+                  th:action="@{/product/save}"
+                  th:object="${form}"
+                  method="post">
+                <fieldset>
+					<span class="pull-right">
+						    <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+						    <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+					</span>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Name</th>
+                            <th> Price($)</th>
+                            <th> Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product, itemStat : *{products}">
+                            <td><input th:placeholder="Name" th:field="*{products[__${itemStat.index}__].name}" required/></td>
+                            <td><input type="number" th:placeholder="Price" th:field="*{products[__${itemStat.index}__].price}" required/></td>
+                            <td><input th:placeholder="Quantity" th:field="*{products[__${itemStat.index}__].quantity}" required/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Index</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th> Name </th>-->
+<!--        <th> Price </th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:if="${products.empty}">-->
+<!--        <td colspan="2"> No Books Available </td>-->
+<!--    </tr>-->
+<!--    <tr th:each="product : ${products}">-->
+<!--        <td><span th:text="${product.name}"> Name </span></td>-->
+<!--        <td><span th:text="${product.price}"> Price </span></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>All Products</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--            <h1> Products </h1>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <table class="table">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th> Title </th>-->
+<!--                    <th> Author </th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:if="${products.empty}">-->
+<!--                    <td colspan="2"> No Products Available </td>-->
+<!--                </tr>-->
+<!--                <tr th:each="product : ${products}">-->
+<!--                    <td><span th:text="${product.name}"> Title </span></td>-->
+<!--                    <td><span th:text="${product.price}"> Price </span></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--            <a class="btn btn-success" href="#" th:href="@{/product/add}"> Add Books </a>-->
+<!--            <a class="btn btn-primary" href="#" th:href="@{/product/edit}" th:classappend="${products.empty} ? 'disabled' : ''"> Edit Products </a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+<head>
+    <title>Binding a List in Thymeleaf</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <p>
+    <h3>Binding a List in Thymeleaf - Example</h3>
+    </p>
+</div>
+<div class="container">
+    <a class="btn btn-info" href="#" th:href="@{/product/all}"> Products List </a>
+</div>
+</body>
+</html>

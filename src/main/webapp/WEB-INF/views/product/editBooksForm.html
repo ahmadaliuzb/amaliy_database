@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Edit Books </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-info" href="#" th:href="@{/product/all}"> Back to All Products </a>
+            <form action="#" class="form-horizontal"
+                  th:action="@{/product/save}"
+                  th:object="${form}"
+                  method="post">
+                <fieldset>
+					<span class="pull-right">
+						    <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+						    <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+					</span>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th> Name</th>
+                            <th> Price</th>
+                            <th> Qunatity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product, itemStat : ${form.products}">
+                            <td><input hidden th:name="|products[${itemStat.index}].id|" th:value="${product.getId()}"/></td>
+                            <td><input th:placeholder="Name + ' ' + ${itemStat.count}" th:name="|products[${itemStat.index}].name|" th:value="${product.getName()}"
+                                       required/></td>
+                            <td><input th:placeholder="Price + ' ' + ${itemStat.count}" th:name="|products[${itemStat.index}].price|"
+                                       th:value="${product.getPrice()}" required/></td>
+                            <td><input th:placeholder="Quantity + ' ' + ${itemStat.count}" th:name="|products[${itemStat.index}].quantity|"
+                                       th:value="${product.getQuantity()}" required/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
